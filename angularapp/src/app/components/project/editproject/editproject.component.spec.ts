@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleterequestComponent } from './deleterequest.component';
+import { EditprojectComponent } from './editproject.component';
 
-describe('DeleterequestComponent', () => {
-  let component: DeleterequestComponent;
-  let fixture: ComponentFixture<DeleterequestComponent>;
+describe('EditprojectComponent', () => {
+  let component: EditprojectComponent;
+  let fixture: ComponentFixture<EditprojectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleterequestComponent ]
+      declarations: [ EditprojectComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleterequestComponent);
+    fixture = TestBed.createComponent(EditprojectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

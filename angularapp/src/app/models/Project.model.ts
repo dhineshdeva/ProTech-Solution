@@ -9,5 +9,6 @@ export interface Project {
     FrontEndTechStack:string;
     BackendEndTechStack:string;
     Database:string;
+    
 
 }

@@ -10,7 +10,7 @@
           [(ngModel)]="formData.ProposalTitle"
           placeholder="ProposalTitle"
           required
-          #CropName="ngModel"
+          #ProposalTitle="ngModel"
           (change)="handleChange($event, 'ProposalTitle')"
         />
         <div class="error" *ngIf="ProposalTitle.invalid && ProposalTitle.touched">
@@ -25,7 +25,7 @@
           [(ngModel)]="formData.ProposalDescription"
           placeholder="ProposalDescription"
           required
-          #CropType="ngModel"
+          #ProposalDescription="ngModel"
           (change)="handleChange($event, 'ProposalDescription')"
         />
         <div class="error" *ngIf="ProposalDescription.invalid && ProposalDescription.touched">
@@ -33,42 +33,20 @@
         </div>
   
   
-        <label for="Description">Description<span class="required">*</span></label>
+        <label for="Status">Status<span class="required">*</span></label>
         <input
           type="text"
-          name="Description"
-          [(ngModel)]="formData.Description"
-          placeholder="Description"
+          name="Status"
+          [(ngModel)]="formData.Status"
+          placeholder="Status"
           required
-          #Description="ngModel"
-          (change)="handleChange($event, 'Description')"
+          #Status="ngModel"
+          (change)="handleChange($event, 'Status')"
         />
-        <div class="error" *ngIf="Description.invalid && Description.touched">
-          *Description Rate is required
+        <div class="error" *ngIf="Status.invalid && Status.touched">
+          *Status  is required
         </div>
   
-  
-        <label for="PlantingDate">PlantingDate<span class="required">*</span></label>
-        <input
-          type="date"
-          name="PlantingDate"
-          [(ngModel)]="formData.PlantingDate"
-          placeholder="PlantingDate"
-          required
-          #PlantingDate="ngModel"
-          (change)="handleChange($event, 'PlantingDate')"
-        />
-        <div class="error" *ngIf="PlantingDate.invalid && PlantingDate.touched">
-          *PlantingDate Amount is required
-        </div>
-  
-        <div *ngIf="errorMessage" class="error">
-          *{{ errorMessage }}
-        </div>
-  
-        <button type="submit">Submit</button>
-      </form>
-    </div>
   
     <div *ngIf="successPopup" class="success-popup">
       <p>Successfully Added!</p>

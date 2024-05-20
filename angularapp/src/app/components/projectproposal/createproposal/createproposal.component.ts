@@ -14,7 +14,7 @@ export class CreateproposalComponent implements OnInit {
   id: number;
   formData: ProjectProposal = { // Use the Loan interface to type the formData object
 
-    // UserId: null,
+    UserId: null,
     ProposalTitle: "",
     ProposalDescription: "",
     Status: ""
