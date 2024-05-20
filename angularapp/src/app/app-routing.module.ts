@@ -6,18 +6,7 @@ import { RegistrationComponent } from './components/registration/registration.co
 
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './components/authguard/auth.guard';
-import { NewcropComponent } from './components/crop/newcrop/newcrop.component';
-import { ViewcropComponent } from './components/crop/viewcrop/viewcrop.component';
-import { UpdatecropComponent } from './components/crop/updatecrop/updatecrop.component';
-import { DeletecropComponent } from './components/crop/deletecrop/deletecrop.component';
-import { ViewagroComponent } from './components/agrochemicals/viewagro/viewagro.component';
-import { CreateagroComponent } from './components/agrochemicals/createagro/createagro.component';
-import { UpdateagroComponent } from './components/agrochemicals/updateagro/updateagro.component';
-import { DeleteagroComponent } from './components/agrochemicals/deleteagro/deleteagro.component';
-import { CreaterequestComponent } from './components/request/createrequest/createrequest.component';
-import { ViewrequestComponent } from './components/request/viewrequest/viewrequest.component';
-import { UpdaterequestComponent } from './components/request/updaterequest/updaterequest.component';
-import { DeleterequestComponent } from './components/request/deleterequest/deleterequest.component';
+
 import { CreatefeedbackComponent } from './components/feedback/createfeedback/createfeedback.component';
 import { ViewfeedbackComponent } from './components/feedback/viewfeedback/viewfeedback.component';
 import { FormerviewfeedbackComponent } from './components/feedback/formerviewfeedback/formerviewfeedback.component';
@@ -25,6 +14,14 @@ import { CreateproposalComponent } from './components/projectproposal/createprop
 import { ViewproposalComponent } from './components/projectproposal/viewproposal/viewproposal.component';
 import { EditproposalComponent } from './components/projectproposal/editproposal/editproposal.component';
 import { DeleteproposalComponent } from './components/projectproposal/deleteproposal/deleteproposal.component';
+import { CreatetaskComponent } from './components/task/createtask/createtask.component';
+import { ViewtaskComponent } from './components/task/viewtask/viewtask.component';
+import { EdittaskComponent } from './components/task/edittask/edittask.component';
+import { DeletetaskComponent } from './components/task/deletetask/deletetask.component';
+import { CreateprojectComponent } from './components/project/createproject/createproject.component';
+import { ViewprojectComponent } from './components/project/viewproject/viewproject.component';
+import { EditprojectComponent } from './components/project/editproject/editproject.component';
+import { DeleteprojectComponent } from './components/project/deleteproject/deleteproject.component';
 
 
 const routes: Routes = [
@@ -33,25 +30,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: RegistrationComponent },
   { path: 'error', component: ErrorComponent },
-  { path: 'farmer/crop/add', component: NewcropComponent },
-  { path: 'farmer/crop/view', component: ViewcropComponent },
-  { path: 'farmer/crop/update', component: UpdatecropComponent },
-  { path: 'farmer/crop/delete', component: DeletecropComponent },
-
-  { path: 'farmer/agro/view', component: ViewagroComponent },
-  { path: 'farmer/request/create', component: CreaterequestComponent },
-
-  { path: 'seller/agro/view', component: ViewagroComponent },
-
-  { path: 'seller/agro/create', component: CreateagroComponent },
-  { path: 'seller/agro/update', component: UpdateagroComponent },
-  { path: 'seller/agro/delete', component: DeleteagroComponent },
-
-  { path: 'farmer/request/create', component: CreaterequestComponent },
-  { path: 'farmer/request/view', component: ViewrequestComponent },
-  { path: 'farmer/request/update', component: UpdaterequestComponent },
-  { path: 'farmer/request/delete', component: DeleterequestComponent },
-
   { path: 'farmer/feedback/create', component: CreatefeedbackComponent },
   { path: 'farmer/feedback/myfeedback', component: FormerviewfeedbackComponent },
   //project Proposal
@@ -59,7 +37,28 @@ const routes: Routes = [
   { path: 'employee/proposal/view', component: ViewproposalComponent },
   { path: 'employee/proposal/edit', component: EditproposalComponent },
   { path: 'employee/proposal/delete', component: DeleteproposalComponent },
-  
+
+  { path: '/employee/project/view', component: ViewprojectComponent },
+
+  { path: '/employee/task/view', component: ViewtaskComponent },
+
+  { path: '/employee/task/edit', component: EdittaskComponent },
+
+
+  // Project
+  { path: 'manager/project/create', component: CreateprojectComponent },
+  { path: 'manager/project/view', component: ViewprojectComponent },
+  { path: 'manager/project/edit', component: EditprojectComponent },
+  { path: 'manager/project/delete', component: DeleteprojectComponent },
+  //Task
+  { path: 'manager/task/create', component: CreatetaskComponent },
+  { path: 'manager/task/view', component: ViewtaskComponent },
+  { path: 'manager/task/edit', component: EdittaskComponent },
+  { path: 'manager/task/delete', component: DeletetaskComponent },
+  //feedback
+  { path: 'employee/feedback/create', component: CreatefeedbackComponent },
+  { path: 'employee/feedback/myfeedback', component: ViewfeedbackComponent},
+  { path: 'manager/feedback/view', component: ViewfeedbackComponent },
   { path: '**', redirectTo: '/error' },
 ];
 

@@ -22,6 +22,10 @@ import { CreateprojectComponent } from './components/project/createproject/creat
 import { ViewprojectComponent } from './components/project/viewproject/viewproject.component';
 import { EditprojectComponent } from './components/project/editproject/editproject.component';
 import { DeleteprojectComponent } from './components/project/deleteproject/deleteproject.component';
+import { CreatetaskComponent } from './components/task/createtask/createtask.component';
+import { ViewtaskComponent } from './components/task/viewtask/viewtask.component';
+import { EdittaskComponent } from './components/task/edittask/edittask.component';
+import { DeletetaskComponent } from './components/task/deletetask/deletetask.component';
 
 
 
@@ -32,21 +36,6 @@ import { DeleteprojectComponent } from './components/project/deleteproject/delet
     RegistrationComponent,
     ErrorComponent,
     NavbarComponent,
-
-    NewcropComponent,
-
-    ViewcropComponent,
-    UpdatecropComponent,
-    DeletecropComponent,
-
-    CreateagroComponent,
-    ViewagroComponent,
-    UpdateagroComponent,
-    DeleteagroComponent,
-    CreaterequestComponent,
-    ViewrequestComponent,
-    UpdaterequestComponent,
-    DeleterequestComponent,
     CreatefeedbackComponent,
     ViewfeedbackComponent,
     FormerviewfeedbackComponent,
@@ -60,6 +49,10 @@ import { DeleteprojectComponent } from './components/project/deleteproject/delet
     ViewprojectComponent,
     EditprojectComponent,
     DeleteprojectComponent,
+    CreatetaskComponent,
+    ViewtaskComponent,
+    EdittaskComponent,
+    DeletetaskComponent,
 
 
   ],

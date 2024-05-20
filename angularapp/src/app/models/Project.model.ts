@@ -1,4 +1,5 @@
 export interface Project {
+    
     ProjectId?:number;
     ProposalId?:number;
     ProjectTitle:number;

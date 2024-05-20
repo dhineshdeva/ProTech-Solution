@@ -20,24 +20,25 @@
         <li *ngIf="isManager">
             <a routerLinkActive="active">Project</a>
             <ul class="sub-menu">
-                <li><a routerLink="/employee/task/view">View</a></li>
-                <li><a routerLink="employee/task/edit">Edit</a></li>             
+                <li><a routerLink="/manager/project/create">create</a></li>
+                <li><a routerLink="/manager/project/view">View</a></li>
+                <li><a routerLink="/manager/project/update">Edit</a></li>             
             </ul>
         </li>
         <li *ngIf="isManager">
             <a routerLinkActive="active">Task</a>
             <ul class="sub-menu">
-                <li><a routerLink="/employee/task/view">create</a></li>
-                <li><a routerLink="/employee/task/view">View</a></li>
-                <li><a routerLink="/employee/task/view">Edit</a></li>
-                <li><a routerLink="employee/task/edit">Delete</a></li>             
+                <li><a routerLink="/manager/task/create">create</a></li>
+                <li><a routerLink="/manager/task/view">View</a></li>
+                <li><a routerLink="/manager/task/edit">Edit</a></li>
+                <li><a routerLink="manager/task/delete">Delete</a></li>             
             </ul>
         </li>
         <li *ngIf="isManager">
             <a routerLinkActive="active">Feedbacks</a>
             <ul class="sub-menu">
                
-                <li><a routerLink="/employee/feedback/myfeedback">View Feedback</a></li>
+                <li><a routerLink="/manager/feedback/view">View Feedback</a></li>
             </ul>
         </li>
 

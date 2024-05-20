@@ -59,7 +59,7 @@ export class ViewproposalComponent implements OnInit {
     if (this.proposalToDelete) {
       this.proposalService.deleteProposal(this.proposalToDelete).subscribe(
         (response) => {
-          console.log('Crop deleted successfully', response);
+          console.log('Proposal deleted successfully', response);
           this.closeDeletePopup();
           this.fetchAvailableProposal();
           this.errorMessage = '';

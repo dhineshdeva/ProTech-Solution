@@ -32,6 +32,19 @@
         <div class="error" *ngIf="ProjectTitle.invalid && ProjectTitle.touched">
           *ProjectTitle is required
         </div>
+        <label for="ProjectDescription">ProjectDescription<span class="required">*</span></label>
+        <input
+          type="text"
+          name="ProjectDescription"
+          [(ngModel)]="formData.ProjectDescription"
+          placeholder="ProjectDescription"
+          required
+          #ProjectDescription="ngModel"
+          (change)="handleChange($event, 'ProjectDescription')"
+        />
+        <div class="error" *ngIf="ProjectDescription.invalid && ProjectDescription.touched">
+          *ProjectDescription is required
+        </div>
   
   
         <label for="StartDate">StartDate<span class="required">*</span></label>
@@ -117,6 +130,7 @@
         <div class="error" *ngIf="Database.invalid && Database.touched">
           *Database  is required
         </div>
+
 
         <!-- <label for="ProjectDescription">ProjectDescription<span class="required">*</span></label>
         <input

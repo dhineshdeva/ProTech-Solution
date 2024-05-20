@@ -1,0 +1,147 @@
+<div>
+    <div class="loan-form-container" [ngClass]="{ blur: successPopup }">
+      <h2>Create New Task</h2>
+      <hr>
+      <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+
+        <label for="ProjectId">ProjectId<span class="required">*</span></label>
+        <input
+          type="number"
+          name="ProjectId"
+          [(ngModel)]="formData.ProjectId"
+          placeholder="ProjectId"
+          required
+          #ProjectId="ngModel"
+          (change)="handleChange($event, 'ProjectId')"
+        />
+        <div class="error" *ngIf="ProjectId.invalid && ProjectId.touched">
+          *ProjectId is required
+        </div>
+  
+  
+        <label for="TaskTitle">TaskTitle<span class="required">*</span></label>
+        <input
+          type="text"
+          name="TaskTitle"
+          [(ngModel)]="formData.TaskTitle"
+          placeholder="TaskTitle"
+          required
+          #TaskTitle="ngModel"
+          (change)="handleChange($event, 'TaskTitle')"
+        />
+        <div class="error" *ngIf="TaskTitle.invalid && TaskTitle.touched">
+          *TaskTitle is required
+        </div>
+
+        <label for="TaskDescription">TaskDescription<span class="required">*</span></label>
+        <input
+          type="text"
+          name="TaskDescription"
+          [(ngModel)]="formData.TaskDescription"
+          placeholder="TaskDescription"
+          required
+          #TaskDescription="ngModel"
+          (change)="handleChange($event, 'TaskDescription')"
+        />
+        <div class="error" *ngIf="TaskDescription.invalid && TaskDescription.touched">
+          *TaskDescription is required
+        </div>
+  
+  
+        <label for="AssignedTo">AssignedTo<span class="required">*</span></label>
+        <input
+          type="number"
+          name="AssignedTo"
+          [(ngModel)]="formData.AssignedTo"
+          placeholder="AssignedTo"
+          required
+          #AssignedTo="ngModel"
+          (change)="handleChange($event, 'AssignedTo')"
+        />
+        <div class="error" *ngIf="AssignedTo.invalid && AssignedTo.touched">
+          *AssignedTo  is required
+        </div>
+
+        <label for="Status">Status<span class="required">*</span></label>
+        <input
+          type="text"
+          name="Status"
+          [(ngModel)]="formData.Status"
+          placeholder="Status"
+          required
+          #Status="ngModel"
+          (change)="handleChange($event, 'Status')"
+        />
+        <div class="error" *ngIf="Status.invalid && Status.touched">
+          *Status  is required
+        </div>
+
+        <label for="DueDate">DueDate<span class="required">*</span></label>
+        <input
+          type="date"
+          name="DueDate"
+          [(ngModel)]="formData.DueDate"
+          placeholder="DueDate"
+          required
+          #DueDate="ngModel"
+          (change)="handleChange($event, 'DueDate')"
+        />
+        <div class="error" *ngIf="DueDate.invalid && DueDate.touched">
+          *DueDate  is required
+        </div>
+
+        <label for="StartDate">StartDate<span class="required">*</span></label>
+        <input
+          type="date"
+          name="StartDate"
+          [(ngModel)]="formData.StartDate"
+          placeholder="StartDate"
+          required
+          #StartDate="ngModel"
+          (change)="handleChange($event, 'StartDate')"
+        />
+        <div class="error" *ngIf="StartDate.invalid && StartDate.touched">
+          *StartDate  is required
+        </div>
+
+        <label for="CompletedDate">CompletedDate<span class="required">*</span></label>
+        <input
+          type="text"
+          name="CompletedDate"
+          [(ngModel)]="formData.CompletedDate"
+          placeholder="CompletedDate"
+          required
+          #BackendEndTechStack="ngModel"
+          (change)="handleChange($event, 'CompletedDate')"
+        />
+        <div class="error" *ngIf="CompletedDate.invalid && CompletedDate.touched">
+          *CompletedDate  is required
+        </div>
+
+        <label for="Priority">Priority<span class="required">*</span></label>
+        <input
+          type="text"
+          name="Priority"
+          [(ngModel)]="formData.Priority"
+          placeholder="Priority"
+          required
+          #Priority="ngModel"
+          (change)="handleChange($event, 'Priority')"
+        />
+        <div class="error" *ngIf="Priority.invalid && Priority.touched">
+          *Priority  is required
+        </div>
+
+
+        
+        <div class="error" *ngIf="ProjectDescription.invalid && ProjectDescription.touched">
+          *Status  is required
+        </div>
+  
+  
+    <div *ngIf="successPopup" class="success-popup">
+      <p>Successfully Added!</p>
+      <button (click)="handleSuccessMessage()">Ok</button>
+    </div>
+  </div>
+  
