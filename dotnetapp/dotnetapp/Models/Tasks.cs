@@ -25,8 +25,8 @@ namespace dotnetapp.Models
         [Required(ErrorMessage = "is Required")]
         public string Priority { get; set; }
 
-        public User? User { get; set; }
-        public Project Project { get; set; }
+        public virtual User? User { get; set; }
+        public virtual Project Project { get; set; }
 
 
 

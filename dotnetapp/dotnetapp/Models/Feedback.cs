@@ -14,6 +14,6 @@ namespace dotnetapp.Models
         public string FeedbackText { get; set; }
         public DateTime Date { get; set; }
 
-        public User? User { get; set; }
+        public virtual User? User { get; set; }
     }
 }
