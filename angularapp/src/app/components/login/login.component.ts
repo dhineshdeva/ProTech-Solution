@@ -22,9 +22,9 @@ export class LoginComponent {
       (asd) => {
         // Successful login      
         
-        if (this.authService.isSeller()) {
+        if (this.authService.isEmployee()) {
           this.router.navigate(['/']); // Navigate to admin page
-        } else if (this.authService.isFarmer) {
+        } else if (this.authService.isManager) {
           this.router.navigate(['/']); // Navigate to organizer page
         }
       },

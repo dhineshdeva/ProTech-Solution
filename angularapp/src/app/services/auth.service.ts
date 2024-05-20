@@ -80,38 +80,20 @@ export class AuthService {
 
     return !!token; // Return true if the token exists
   }
-
-  isAdmin(): boolean {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decodedToken = this.decodeToken(token);
-      console.log("isAdmindecodedToken", decodedToken);
-      return decodedToken['role'] === 'Admin';
-    }
-    return false;
-  }
-  isFarmer(): boolean {
+  isEmployee():boolean{
     console.log(localStorage.getItem('userRole'))
-    if (localStorage.getItem("userRole") == "Farmer")
-      return true;
-    else
-      return false;
-  }
-  isSeller(): boolean {
-
-    if (localStorage.getItem("userRole") == "Seller")
+    if (localStorage.getItem("userRole") == "Employee")
       return true;
     else
       return false;
   }
 
-  isCustomer(): boolean {
-    const token = localStorage.getItem('token');
-    if (token) {
-      const decodedToken = this.decodeToken(token);
-      return decodedToken['role'] === 'User';
-    }
-    return false;
+  isManager():boolean{
+    console.log(localStorage.getItem('userRole'))
+    if (localStorage.getItem("userRole") == "Manager")
+      return true;
+    else
+      return false;
   }
 
   getCustomerName(): string {

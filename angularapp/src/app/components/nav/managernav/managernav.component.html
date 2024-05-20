@@ -1,0 +1,48 @@
+<!-- Employee  Navigation -->
+
+<ul class="nav-links">
+    <ng-container *ngIf="isLoggedIn">
+        <li *ngIf="isManager">
+
+            <a routerLinkActive="active">Employee</a>
+            <ul class="sub-menu">
+                <li><a routerLink="/employee/proposal/create">View</a></li>                
+            </ul>
+        </li>
+        <li *ngIf="isManager">
+            <a routerLinkActive="active">ProjectProposal</a>
+            <ul class="sub-menu">
+                <li><a routerLink="/manager/proposal/view">Views</a></li>
+                <li><a routerLink="/manager/proposal/update">Edit</a></li>                         
+            </ul>
+        </li>
+
+        <li *ngIf="isManager">
+            <a routerLinkActive="active">Project</a>
+            <ul class="sub-menu">
+                <li><a routerLink="/employee/task/view">View</a></li>
+                <li><a routerLink="employee/task/edit">Edit</a></li>             
+            </ul>
+        </li>
+        <li *ngIf="isManager">
+            <a routerLinkActive="active">Task</a>
+            <ul class="sub-menu">
+                <li><a routerLink="/employee/task/view">create</a></li>
+                <li><a routerLink="/employee/task/view">View</a></li>
+                <li><a routerLink="/employee/task/view">Edit</a></li>
+                <li><a routerLink="employee/task/edit">Delete</a></li>             
+            </ul>
+        </li>
+        <li *ngIf="isManager">
+            <a routerLinkActive="active">Feedbacks</a>
+            <ul class="sub-menu">
+               
+                <li><a routerLink="/employee/feedback/myfeedback">View Feedback</a></li>
+            </ul>
+        </li>
+
+
+
+
+    </ng-container>
+</ul>

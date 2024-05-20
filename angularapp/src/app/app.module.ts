@@ -12,11 +12,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { CommonModule } from '@angular/common';
 
-import { UsernavComponent } from './components/usernav/usernav.component';
 
-
-import { SellernavComponent } from './components/nav/sellernav/sellernav.component';
-import { FarmernavComponent } from './components/nav/farmernav/farmernav.component';
 import { ViewcropComponent } from './components/crop/viewcrop/viewcrop.component';
 import { UpdatecropComponent } from './components/crop/updatecrop/updatecrop.component';
 import { DeletecropComponent } from './components/crop/deletecrop/deletecrop.component';
@@ -34,6 +30,12 @@ import { DeleterequestComponent } from './components/request/deleterequest/delet
 import { CreatefeedbackComponent } from './components/feedback/createfeedback/createfeedback.component';
 import { ViewfeedbackComponent } from './components/feedback/viewfeedback/viewfeedback.component';
 import { FormerviewfeedbackComponent } from './components/feedback/formerviewfeedback/formerviewfeedback.component';
+import { ManagernavComponent } from './components/nav/managernav/managernav.component';
+import { EmployeenavComponent } from './components/nav/employeenav/employeenav.component';
+import { CreateproposalComponent } from './components/projectproposal/createproposal/createproposal.component';
+import { EditproposalComponent } from './components/projectproposal/editproposal/editproposal.component';
+import { ViewproposalComponent } from './components/projectproposal/viewproposal/viewproposal.component';
+import { DeleteproposalComponent } from './components/projectproposal/deleteproposal/deleteproposal.component';
 
 
 
@@ -42,16 +44,15 @@ import { FormerviewfeedbackComponent } from './components/feedback/formerviewfee
     AppComponent,
     LoginComponent,
     RegistrationComponent,
-    ErrorComponent,    
-    NavbarComponent,    
-    UsernavComponent,  
+    ErrorComponent,
+    NavbarComponent,
+
     NewcropComponent,
-    SellernavComponent,
-    FarmernavComponent,
+
     ViewcropComponent,
     UpdatecropComponent,
     DeletecropComponent,
-    
+
     CreateagroComponent,
     ViewagroComponent,
     UpdateagroComponent,
@@ -62,8 +63,15 @@ import { FormerviewfeedbackComponent } from './components/feedback/formerviewfee
     DeleterequestComponent,
     CreatefeedbackComponent,
     ViewfeedbackComponent,
-    FormerviewfeedbackComponent,       
-    
+    FormerviewfeedbackComponent,
+    ManagernavComponent,
+    EmployeenavComponent,
+    CreateproposalComponent,
+    EditproposalComponent,
+    ViewproposalComponent,
+    DeleteproposalComponent,
+
+
   ],
   imports: [
     BrowserModule,
