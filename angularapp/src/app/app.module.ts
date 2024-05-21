@@ -54,7 +54,6 @@ import { DeletetaskComponent } from './components/task/deletetask/deletetask.com
     EdittaskComponent,
     DeletetaskComponent,
 
-
   ],
   imports: [
     BrowserModule,

@@ -1,56 +1,36 @@
 <div>
-    <div class="loan-form-container" [ngClass]="{ blur: successPopup }">
-      <h2>Create New Crop</h2>
-      <hr>
-      <form #proposalForm="ngForm" (ngSubmit)="onSubmit(proposalForm)">
-        <label for="ProposalTitle">ProposalTitle<span class="required">*</span></label>
-        <input
-          type="text"
-          name="ProposalTitle"
-          [(ngModel)]="formData.ProposalTitle"
-          placeholder="ProposalTitle"
-          required
-          #ProposalTitle="ngModel"
-          (change)="handleChange($event, 'ProposalTitle')"
-        />
-        <div class="error" *ngIf="ProposalTitle.invalid && ProposalTitle.touched">
-          *ProposalTitle is required
-        </div>
-  
-  
-        <label for="ProposalDescription">ProposalDescription<span class="required">*</span></label>
-        <input
-          type="text"
-          name="ProposalDescription"
-          [(ngModel)]="formData.ProposalDescription"
-          placeholder="ProposalDescription"
-          required
-          #ProposalDescription="ngModel"
-          (change)="handleChange($event, 'ProposalDescription')"
-        />
-        <div class="error" *ngIf="ProposalDescription.invalid && ProposalDescription.touched">
-          *ProposalDescription is required
-        </div>
-  
-  
-        <label for="Status">Status<span class="required">*</span></label>
-        <input
-          type="text"
-          name="Status"
-          [(ngModel)]="formData.Status"
-          placeholder="Status"
-          required
-          #Status="ngModel"
-          (change)="handleChange($event, 'Status')"
-        />
-        <div class="error" *ngIf="Status.invalid && Status.touched">
-          *Status  is required
-        </div>
-  
-  
+  <div class="loan-form-container" [ngClass]="{ blur: successPopup }">
+    <h2>Create New Proposal</h2>
+    <hr>
+
+    <form #proposalForm="ngForm" (ngSubmit)="onSubmit(proposalForm)">
+      <label for="ProposalTitle">ProposalTitle<span class="required">*</span></label>
+      <input type="text" name="ProposalTitle" [(ngModel)]="formData.ProposalTitle" placeholder="ProposalTitle" required
+        #ProposalTitle="ngModel" (change)="handleChange($event, 'ProposalTitle')" />
+      <div class="error" *ngIf="ProposalTitle.invalid && ProposalTitle.touched">
+        *ProposalTitle is required
+      </div>
+
+
+      <label for="ProposalDescription">ProposalDescription<span class="required">*</span></label>
+      <input type="text" name="ProposalDescription" [(ngModel)]="formData.ProposalDescription"
+        placeholder="ProposalDescription" required #ProposalDescription="ngModel"
+        (change)="handleChange($event, 'ProposalDescription')" />
+      <div class="error" *ngIf="ProposalDescription.invalid && ProposalDescription.touched">
+        *ProposalDescription is required
+      </div>
+
+
+      <label for="Status">Status<span class="required">*</span></label>
+      <input type="text" name="Status" [(ngModel)]="formData.Status" placeholder="Status" required #Status="ngModel"
+        (change)="handleChange($event, 'Status')" />
+      <div class="error" *ngIf="Status.invalid && Status.touched">
+        *Status is required
+      </div>
+    </form>
+
     <div *ngIf="successPopup" class="success-popup">
       <p>Successfully Added!</p>
       <button (click)="handleSuccessMessage()">Ok</button>
     </div>
   </div>
-  

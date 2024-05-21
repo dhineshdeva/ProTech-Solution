@@ -9,8 +9,8 @@ import { ProjectService } from 'src/app/services/project.service';
   templateUrl: './createproject.component.html',
   styleUrls: ['./createproject.component.css']
 })
-export class CreateprojectComponent implements OnInit {
 
+export class CreateprojectComponent implements OnInit {
 
   id: number;
   formData: Project = { // Use the Loan interface to type the formData object
@@ -78,6 +78,4 @@ export class CreateprojectComponent implements OnInit {
       Database: ""
     };
   }
-
-
 }

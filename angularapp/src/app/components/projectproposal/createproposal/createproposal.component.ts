@@ -9,27 +9,23 @@ import { ProjectproposalService } from 'src/app/services/projectproposal.service
   templateUrl: './createproposal.component.html',
   styleUrls: ['./createproposal.component.css']
 })
+
 export class CreateproposalComponent implements OnInit {
 
   id: number;
   formData: ProjectProposal = { // Use the Loan interface to type the formData object
-
     UserId: null,
     ProposalTitle: "",
     ProposalDescription: "",
     Status: ""
-
   };
   errors: any = {};
   errorMessage: string;
   successPopup: boolean = false;
-
-  constructor(private proposalService: ProjectproposalService, private router: Router) { }
-
+  constructor(private proposalService: ProjectproposalService) { }
   ngOnInit(): void {
     // Initialize your component here
   }
-
   handleChange(event: any, field: string) {
     this.formData[field] = event.target.value;
     // Validate your form here and set errors if any
@@ -57,7 +53,6 @@ export class CreateproposalComponent implements OnInit {
       this.errorMessage = 'All fields are required';
     }
   }
-
   handleSuccessMessage() {
     this.successPopup = false;
     this.errorMessage = '';

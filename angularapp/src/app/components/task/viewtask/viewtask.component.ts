@@ -9,6 +9,7 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class ViewtaskComponent implements OnInit {
 
+  
   availableTask: any[] = [];
   showDeletePopup = false;
   taskToDelete: number | null = null;

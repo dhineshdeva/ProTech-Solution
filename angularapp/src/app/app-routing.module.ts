@@ -23,7 +23,6 @@ import { ViewprojectComponent } from './components/project/viewproject/viewproje
 import { EditprojectComponent } from './components/project/editproject/editproject.component';
 import { DeleteprojectComponent } from './components/project/deleteproject/deleteproject.component';
 
-
 const routes: Routes = [
 
   { path: '', component: HomeComponent },
@@ -38,11 +37,11 @@ const routes: Routes = [
   { path: 'employee/proposal/edit', component: EditproposalComponent },
   { path: 'employee/proposal/delete', component: DeleteproposalComponent },
 
-  { path: '/employee/project/view', component: ViewprojectComponent },
+  { path: 'employee/project/view', component: ViewprojectComponent },
 
-  { path: '/employee/task/view', component: ViewtaskComponent },
+  { path: 'employee/task/view', component: ViewtaskComponent },
 
-  { path: '/employee/task/edit', component: EdittaskComponent },
+  { path: 'employee/task/edit', component: EdittaskComponent },
 
 
   // Project

@@ -30,7 +30,7 @@ export class CreatetaskComponent implements OnInit {
   errorMessage: string;
   successPopup: boolean = false;
 
-  constructor(private taskService: TaskService, private router: Router) { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
     // Initialize your component here

@@ -2,7 +2,7 @@
 
 <div>
     <div id="loanHomeBody">
-      <h1>Available Project</h1>
+      <h1>Available Tasks</h1>
       <hr>
   
       <!-- Search Box -->
@@ -17,33 +17,33 @@
   
       </div>
   
-      <!-- Available Project Table -->
+      <!-- Available Task Table -->
       <table class="loan-table">
         <thead>
           <tr>
             <th>S.No</th>
-            <th>ProposalId</th>
-            <th>ProjectTitle</th>
-            <th>ProjectDescription</th>
-            <th>EndDate</th>
-            <th>Satus</th>
-            <th>FrontEndTechStack</th>
-            <th>BackendEndTechStack</th>
-            <th>Database</th>
+            <th>ProjectId</th>
+            <th>TaskTitle</th>
+            <th>TaskDescription</th>
+            <th>AssignedTo</th>
+            <th>Status</th>
+            <th>DueDate</th>
+            <th>CompletedDate</th>
+            <th>Priority</th>
 
           </tr>
         </thead>
-        <tbody *ngIf="filteredproject.length; else noRecords">
-            <tr *ngFor="let project of filteredproject,let i = index">
+        <tbody *ngIf="filteredTask.length; else noRecords">
+            <tr *ngFor="let task of filteredTask,let i = index">
               <td>{{ i + 1 }}</td>
-              <td>{{ project.ProposalId }}</td>
-              <td>{{ project.ProjectTitle }}</td>
-              <td>{{ project.ProjectDescription }}%</td>
-              <td>{{ project.EndDate }}</td>
-              <td>{{ project.Satus }}</td>
-              <td>{{ project.FrontEndTechStack }}</td>
-              <td>{{ project.BackendEndTechStack }}</td>
-              <td>{{ project.Database }}</td>
+              <td>{{ task.ProjectId }}</td>
+              <td>{{ task.TaskTitle }}</td>
+              <td>{{ task.TaskDescription }}%</td>
+              <td>{{ task.AssignedTo }}</td>
+              <td>{{ task.Status }}</td>
+              <td>{{ task.DueDate }}</td>
+              <td>{{ task.CompletedDate }}</td>
+              <td>{{ task.Priority }}</td>
               <td>
                 <!-- <button
                   id="greenButton"
