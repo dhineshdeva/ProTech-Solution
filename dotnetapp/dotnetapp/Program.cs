@@ -27,6 +27,10 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 // Add Services
 
 builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<ProjectProposalService>();
+builder.Services.AddScoped<ProjectService>();
+builder.Services.AddScoped<TaskService>();
+builder.Services.AddScoped<FeedbackService>();
 
 // Adding Authentication
 builder.Services.AddAuthentication(options =>
@@ -74,6 +78,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseHttpsRedirection();
 app.UseCors();

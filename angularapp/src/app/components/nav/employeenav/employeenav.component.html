@@ -4,26 +4,24 @@
     <ng-container *ngIf="isLoggedIn">
         <li *ngIf="isEmployee">
 
-            <a routerLinkActive="active">ProjextProposal</a>
+            <a routerLinkActive="active">Project Proposal</a>
             <ul class="sub-menu">
-                <li><a routerLink="/employee/proposal/create">Create</a></li>
-                <li><a routerLink="/employee/proposal/view">Views</a></li>
-                <li><a routerLink="/employee/proposal/update">Edit</a></li>
-                <li><a routerLink="/employee/proposal/delete">Delkete</a></li>
+                <li><a routerLink="/employee/proposal/create">Create Proposal</a></li>
+                <li><a routerLink="/employee/proposal/view">View Proposal</a></li>              
             </ul>
         </li>
         <li *ngIf="isEmployee">
             <a routerLinkActive="active">Project</a>
             <ul class="sub-menu">
-                <li><a routerLink="/employee/project/view">view</a></li>             
+                <li><a routerLink="/employee/project/view">view Projects</a></li>             
             </ul>
         </li>
 
         <li *ngIf="isEmployee">
             <a routerLinkActive="active">Task</a>
             <ul class="sub-menu">
-                <li><a routerLink="/employee/task/view">View</a></li>
-                <li><a routerLink="employee/task/edit">Edit</a></li>             
+                <li><a routerLink="/employee/task/view">View Task</a></li>
+               
             </ul>
         </li>
         <li *ngIf="isEmployee">

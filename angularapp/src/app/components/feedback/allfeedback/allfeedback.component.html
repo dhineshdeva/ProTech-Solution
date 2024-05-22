@@ -1,19 +1,19 @@
 <div class="feedback-table-container"  >
-    <h1>All FeedBacks</h1>
+    <h1>My Feedback</h1>
     <hr>
     <table class="feedback-table" [ngClass]="{ blur: showDeletePopup }">
       <thead>
         <tr>
           <th>S.No</th>
-          <th>Feedback</th>    
-         
+          <th>Feedback</th>   
+          <th>Given By</th>          
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let feedback of feedbacks; let i = index">
           <td>{{ i + 1 }}</td>
           <td>{{ feedback.FeedbackText }}</td>
-        
+          <td>{{feedback.UserId}}</td>
           <!-- <td><button class="delete-button" (click)="openDeletePopup(feedback.FeedbackId)">Delete</button></td> -->
         </tr>
       </tbody>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { TaskService } from 'src/app/services/task.service';
 
 @Component({
@@ -9,7 +10,8 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class ViewtaskComponent implements OnInit {
 
-  
+  isEmployee:boolean;
+  userId:number;
   availableTask: any[] = [];
   showDeletePopup = false;
   taskToDelete: number | null = null;
@@ -25,38 +27,69 @@ export class ViewtaskComponent implements OnInit {
   errorMessage: string = '';
   allTask: any[] = []; // Declare the all task property
 
-  constructor(private router: Router, private taskService: TaskService) {}
+  constructor(private router: Router, private taskService: TaskService, private authService:AuthService) {}
 
   ngOnInit(): void {
+    this.isEmployee=this.authService.isEmployee();
+    this.userId=Number(localStorage.getItem('userId'));
     this.fetchAvailableTask();
   }
 
   fetchAvailableTask() {
-    this.taskService.getAllTask().subscribe(
-      (data: any) => {
-        this.availableTask = data;
-        this.maxRecords = this.availableTask.length;
-        this.allTask = data; // Populate allcrops with the initial list of crops
-        this.totalPages = Math.ceil(this.maxRecords / this.limit);        
-        console.log('Available proposal:', this.availableTask);
-        this.filteredTask=this.availableTask;
-      },
-      (error) => {
-        // Handle error
-        console.error('Error fetching task:', error);
-      }
-    );
+    if(this.isEmployee){
+      console.log("Hello ");      
+      this.taskService.getTaskByUserId(this.userId).subscribe(
+        (data: any) => {
+          this.availableTask = data;
+          this.maxRecords = this.availableTask.length;
+          this.allTask = data; // Populate allcrops with the initial list of crops
+          this.totalPages = Math.ceil(this.maxRecords / this.limit);        
+          console.log('Available proposal:', this.availableTask);
+          this.filteredTask=this.availableTask;
+        },
+        (error) => {
+          // Handle error
+          console.error('Error fetching task:', error);
+        }
+      );
+    }
+    else{
+      this.taskService.getAllTask().subscribe(
+        (data: any) => {
+          this.availableTask = data;
+          this.maxRecords = this.availableTask.length;
+          this.allTask = data; // Populate allcrops with the initial list of crops
+          this.totalPages = Math.ceil(this.maxRecords / this.limit);        
+          console.log('Available proposal:', this.availableTask);
+          this.filteredTask=this.availableTask;
+        },
+        (error) => {
+          // Handle error
+          console.error('Error fetching task:', error);
+        }
+      );
+    }
+   
   }
-  handleDeleteClick(projectId: number) {
-    this.taskToDelete = projectId;
+  handleDeleteClick(taskId: number) {
+    this.taskToDelete = taskId;
     this.showDeletePopup = true;
   }
 
-  navigateToEditLoan(id: string) {
-    // this.router.navigate(['/admin/editloan', id]);
+  navigateToEditTask(id: number) {
+   if(this.isEmployee)
+    {
+      this.router.navigate(['/employee/task/edit', id]);
+    }
+    else
+    {
+      this.router.navigate(['/manager/task/edit', id]);
+    }
   }
 
   handleConfirmDelete() {
+    console.log("hai");
+    
     if (this.taskToDelete) {
       this.taskService.deleteTask(this.taskToDelete).subscribe(
         (response) => {

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DeleteprojectComponent } from './deleteproject.component';
+import { AllfeedbackComponent } from './allfeedback.component';
 
-describe('DeleteprojectComponent', () => {
-  let component: DeleteprojectComponent;
-  let fixture: ComponentFixture<DeleteprojectComponent>;
+describe('AllfeedbackComponent', () => {
+  let component: AllfeedbackComponent;
+  let fixture: ComponentFixture<AllfeedbackComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DeleteprojectComponent ]
+      declarations: [ AllfeedbackComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DeleteprojectComponent);
+    fixture = TestBed.createComponent(AllfeedbackComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

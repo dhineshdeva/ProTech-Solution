@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace dotnetapp.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[Controller]")]
     [ApiController]
     public class ProjectController : ControllerBase
     {
@@ -16,11 +16,11 @@ namespace dotnetapp.Controllers
             _projectService = projectService;
         }
         //createProject
-        
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("createProject")]
         public async Task<ActionResult> CreateProject([FromBody] Project project)
-        {
+            {
             try
             {
                 var sucess = await _projectService.CreateProject(project);
@@ -39,12 +39,15 @@ namespace dotnetapp.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
-        [Authorize(Roles = "Employee")]
-        //getAllProjects
+
+
+        //getAllProjects      
+        [Authorize(Roles = "Manager,Employee")]
         [HttpGet("getAllProjects")]
         public async Task<ActionResult<IEnumerable<Project>>> GetAllProjects()
         {
             var projects = await _projectService.GetAllProjects();
+
             if (projects == null)
             {
                 return NotFound();
@@ -54,19 +57,22 @@ namespace dotnetapp.Controllers
                 return Ok(projects);
             }
         }
+
+        [Authorize(Roles = "Manager")]
         //getProjectById/:projectId
-        [HttpGet("getProjectById/:projectId")]
-        public async Task<ActionResult<Project>> GetCropByCropID(int projectId)
+        [HttpGet("getProjectById/{projectId}")]
+        public async Task<ActionResult<Project>> GetProjectByProjectID(int projectId)
         {
-            var crop = await _projectService.GetProjectById(projectId);
-            if (crop == null)
+            var project = await _projectService.GetProjectById(projectId);
+            if (project == null)
                 return NotFound(new { message = "Cannot Find any Project" });
-            return Ok(crop);
+            return Ok(project);
         }
 
         //updateProject/:projectId
-        [HttpPut("updateProject/:projectId")]
-        public async Task<ActionResult> UpdateCropByCropId(int projectId, [FromBody] Project project)
+        [Authorize(Roles = "Manager")]
+        [HttpPut("updateProject/{projectId}")]
+        public async Task<ActionResult> UpdateProjectByProjectId(int projectId, [FromBody] Project project)
         {
             try
             {
@@ -83,8 +89,9 @@ namespace dotnetapp.Controllers
             }
         }
         //deleteProject/:projectId
-        [HttpDelete("deleteProject/:projectId")]
-        public async Task<ActionResult> DeleteCropByCropID(int projectId)
+        [Authorize(Roles = "Manager")]
+        [HttpDelete("deleteProject/{projectId}")]
+        public async Task<ActionResult> DeleteProjectByProjectId(int projectId)
         {
             try
             {
@@ -100,7 +107,9 @@ namespace dotnetapp.Controllers
             }
         }
 
+
         //getProjectByUserID/:userId
+
 
     }
 }

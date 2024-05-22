@@ -43,11 +43,11 @@
                 *EndDate is required
             </div>
 
-            <label for="Satus">Satus<span class="required">*</span></label>
-            <input type="text" name="Satus" [(ngModel)]="formData.Satus" placeholder="Satus" required #Satus="ngModel"
-                (change)="handleChange($event, 'Satus')" />
-            <div class="error" *ngIf="Satus.invalid && Satus.touched">
-                *Satus is required
+            <label for="Status">Status<span class="required">*</span></label>
+            <input type="text" name="Status" [(ngModel)]="formData.Status" placeholder="Status" required #Status="ngModel"
+                (change)="handleChange($event, 'Status')" />
+            <div class="error" *ngIf="Status.Status && Status.touched">
+                *Status is required
             </div>
 
             <label for="FrontEndTechStack">FrontEndTechStack<span class="required">*</span></label>
@@ -72,6 +72,10 @@
             <div class="error" *ngIf="Database.invalid && Database.touched">
                 *Database is required
             </div>
+            <div *ngIf="errorMessage" class="error">
+                *{{ errorMessage }}
+              </div>
+            <button type="submit">Save</button>
         </form>
     </div>
 

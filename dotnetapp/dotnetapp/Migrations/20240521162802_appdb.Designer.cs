@@ -12,8 +12,8 @@ using dotnetapp.Data;
 namespace dotnetapp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240519065227_initialdb")]
-    partial class initialdb
+    [Migration("20240521162802_appdb")]
+    partial class appdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -149,12 +149,12 @@ namespace dotnetapp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("Project_ProposalProposalId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ProposalId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("ProposalId1")
-                        .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
@@ -165,12 +165,12 @@ namespace dotnetapp.Migrations
 
                     b.HasKey("ProjectId");
 
-                    b.HasIndex("ProposalId1");
+                    b.HasIndex("Project_ProposalProposalId");
 
                     b.ToTable("Projects");
                 });
 
-            modelBuilder.Entity("dotnetapp.Models.Proposal", b =>
+            modelBuilder.Entity("dotnetapp.Models.ProjectProposal", b =>
                 {
                     b.Property<int>("ProposalId")
                         .ValueGeneratedOnAdd()
@@ -197,7 +197,7 @@ namespace dotnetapp.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Proposals");
+                    b.ToTable("Project_Proposals");
                 });
 
             modelBuilder.Entity("dotnetapp.Models.Tasks", b =>
@@ -434,14 +434,14 @@ namespace dotnetapp.Migrations
 
             modelBuilder.Entity("dotnetapp.Models.Project", b =>
                 {
-                    b.HasOne("dotnetapp.Models.Proposal", "Proposal")
+                    b.HasOne("dotnetapp.Models.ProjectProposal", "Project_Proposal")
                         .WithMany()
-                        .HasForeignKey("ProposalId1");
+                        .HasForeignKey("Project_ProposalProposalId");
 
-                    b.Navigation("Proposal");
+                    b.Navigation("Project_Proposal");
                 });
 
-            modelBuilder.Entity("dotnetapp.Models.Proposal", b =>
+            modelBuilder.Entity("dotnetapp.Models.ProjectProposal", b =>
                 {
                     b.HasOne("dotnetapp.Models.User", "User")
                         .WithMany()

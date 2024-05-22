@@ -7,7 +7,6 @@ namespace dotnetapp.Models
         [Key]
         public int ProjectId { get; set; }
         [Required(ErrorMessage = "ProposalId is Required")]
-
         public string ProposalId { get; set; }
         [Required(ErrorMessage = "ProjectTitle is Required")]
         public string ProjectTitle { get; set; }

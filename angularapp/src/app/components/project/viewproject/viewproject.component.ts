@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -7,9 +8,8 @@ import { ProjectService } from 'src/app/services/project.service';
   templateUrl: './viewproject.component.html',
   styleUrls: ['./viewproject.component.css']
 })
-export class ViewprojectComponent implements OnInit {
-
-  
+export class ViewprojectComponent implements OnInit { 
+  isManager:boolean;
   availableproject: any[] = [];
   showDeletePopup = false;
   projectToDelete: number | null = null;
@@ -25,10 +25,13 @@ export class ViewprojectComponent implements OnInit {
   errorMessage: string = '';
   allProject: any[] = []; // Declare the allProject property
 
-  constructor(private router: Router, private projectService: ProjectService) {}
+  constructor(private router: Router, private projectService: ProjectService,private authService:AuthService) {}
 
   ngOnInit(): void {
+    console.log(this.fetchAvailableProject())
+    this.isManager=this.authService.isManager();
     this.fetchAvailableProject();
+    
   }
 
   fetchAvailableProject() {
@@ -38,12 +41,12 @@ export class ViewprojectComponent implements OnInit {
         this.maxRecords = this.availableproject.length;
         this.allProject = data; // Populate allcrops with the initial list of crops
         this.totalPages = Math.ceil(this.maxRecords / this.limit);        
-        console.log('Available proposal:', this.availableproject);
+        console.log('Available Project:', this.availableproject);
         this.filteredproject=this.availableproject;
       },
       (error) => {
         // Handle error
-        console.error('Error fetching Proposal:', error);
+        console.error('Error fetching Project:', error);
       }
     );
   }
@@ -52,8 +55,10 @@ export class ViewprojectComponent implements OnInit {
     this.showDeletePopup = true;
   }
 
-  navigateToEditLoan(id: string) {
-    // this.router.navigate(['/admin/editloan', id]);
+  navigateToEditProject(id: number) {
+    console.log(id);
+    
+    this.router.navigate(['/manager/project/edit', id]);
   }
 
   handleConfirmDelete() {
@@ -90,8 +95,8 @@ export class ViewprojectComponent implements OnInit {
     this.errorMessage = '';
   }
 
-  updateAvailableProposal(newProposal: any[]) {
-    this.availableproject = newProposal;
+  updateAvailableProposal(newProject: any[]) {
+    this.availableproject = newProject;
   }
 
   handleSearchChange(searchValue: string): void {

@@ -8,7 +8,5 @@ export interface Task {
     DueDate:Date;
     StartDate:Date;
     CompletedDate:Date;
-    Priority:string
-
-    
+    Priority:string  
 }

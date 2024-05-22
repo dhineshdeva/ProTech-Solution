@@ -1,6 +1,7 @@
 ﻿using dotnetapp.Data;
 using dotnetapp.Models;
 using dotnetapp.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -70,6 +71,7 @@ namespace dotnetapp.Controllers
             }
         }
 
+        [Authorize(Roles ="Manager")]
         [HttpGet("getAllEmployees")]
         public async Task<ActionResult<IEnumerable<User>>> GetAllEmployees()
         {

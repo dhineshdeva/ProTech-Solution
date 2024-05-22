@@ -43,6 +43,8 @@ export class CreatetaskComponent implements OnInit {
 
   onSubmit(taskForm: NgForm) {
     console.log('Form Validity:', taskForm.valid);
+    console.log(taskForm.value);
+    
     if (taskForm.valid) {
       this.taskService.addTask(this.formData).subscribe(
         (res) => {
@@ -79,7 +81,5 @@ export class CreatetaskComponent implements OnInit {
       Priority:""
     };
   }
-
-
 
 }

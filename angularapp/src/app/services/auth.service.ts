@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { apiUrl } from 'src/apiconfig';
@@ -26,21 +26,29 @@ export class AuthService {
     );
     this.currentUser = this.currentUserSubject.asObservable();
   }
+  getAllEmployees():Observable<User[]>{
+    const headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    });
+    return this.http.get<User[]>(`${this.apiUrl}/user/getAllEmployees`, { headers });
+  }
 
   register(user: User): Observable<any> {
     const body = user;
     console.log("inservice", body);
-
-    return this.http.post<any>(`${this.apiUrl}/api/register`, body).pipe(
+    const response= this.http.post<any>(`${this.apiUrl}/User/register`, body).pipe(
       tap((user) => this.storeUserData(user)),
       catchError(this.handleError<any>('register', true))
+      
     );
+    console.log(response)
+    return response;
   }
 
   login(login: Login): Observable<any> {
     const loginData = login;
   
-    return this.http.post<Login>(`${this.apiUrl}/api/user/login`, loginData)
+    return this.http.post<Login>(`${this.apiUrl}/user/login`, loginData)
       .pipe(
         tap(response => {
           console.log(response.token);
@@ -139,5 +147,7 @@ export class AuthService {
       return of(result as T);
     };
   }
+
+  
 
 }

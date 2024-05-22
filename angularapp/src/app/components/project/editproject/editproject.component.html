@@ -1,1 +1,87 @@
-<p>editproject works!</p>
+<div class="loan-form-container" [class.blur]="successPopup">
+    <button type="button" id="backButton" (click)="navigateToDashboard()">
+        Back
+    </button>
+    <h2>Edit Project</h2>
+    <hr>
+    <form #projectForm="ngForm" (ngSubmit)="handleUpdateLoan(projectForm)">
+        <label for="ProposalId">ProposalId<span class="required">*</span></label>
+        <input id="ProposalId" type="text" name="ProposalId" [(ngModel)]="formData.ProposalId" placeholder="ProposalId"
+            required #ProposalId="ngModel" (change)="handleChange($event, 'ProposalId')" />
+        <div class="error" *ngIf="ProposalId.invalid && ProposalId.touched">
+            *ProposalId is required
+        </div>
+
+        <label for="ProjectTitle">ProjectTitle<span class="required">*</span></label>
+        <input id="ProjectTitle" type="text" name="ProjectTitle" [(ngModel)]="formData.ProjectTitle"
+            placeholder="ProjectTitle" required #ProjectTitle="ngModel"
+            (change)="handleChange($event, 'ProjectTitle')" />
+        <div class="error" *ngIf="ProjectTitle.invalid && ProjectTitle.touched">
+            *ProjectTitle is required
+        </div>
+
+        <label for="ProjectDescription">ProjectDescription<span class="required">*</span></label>
+        <input id="ProjectDescription" type="text" name="ProjectDescription" [(ngModel)]="formData.ProjectDescription"
+            placeholder="ProjectDescription" required #ProjectDescription="ngModel"
+            (change)="handleChange($event, 'ProjectDescription')" />
+        <div class="error" *ngIf="ProjectDescription.invalid && ProjectDescription.touched">
+            *ProjectDescription is required
+        </div>
+
+        <label for="StartDate">StartDate<span class="required">*</span></label>
+        <input type="date" name="StartDate" [(ngModel)]="formData.StartDate" placeholder="StartDate" required
+            #StartDate="ngModel" (change)="handleChange($event, 'StartDate')" value="formData.StartDate.to" />
+        <div class="error" *ngIf="StartDate.invalid && StartDate.touched">
+            *StartDate is required
+        </div>
+
+        <label for="EndDate">EndDate<span class="required">*</span></label>
+        <input type="date" name="EndDate" [(ngModel)]="formData.EndDate" placeholder="EndDate" required
+            #EndDate="ngModel" (change)="handleChange($event, 'EndDate')" value="formData.EndDate" />
+        <div class="error" *ngIf="EndDate.invalid && EndDate.touched">
+            *EndDate is required
+        </div>
+
+        <label for="Status">Status<span class="required">*</span></label>
+        <input type="text" name="Status" [(ngModel)]="formData.Status" placeholder="Status" required #Status="ngModel"
+            (change)="handleChange($event, 'Status')" />
+        <div class="error" *ngIf="Status.Status && Status.touched">
+            *Status is required
+        </div>
+
+        <label for="FrontEndTechStack">FrontEndTechStack<span class="required">*</span></label>
+        <input type="text" name="FrontEndTechStack" [(ngModel)]="formData.FrontEndTechStack"
+            placeholder="ProjectDescription" required #FrontEndTechStack="ngModel"
+            (change)="handleChange($event, 'FrontEndTechStack')" />
+        <div class="error" *ngIf="FrontEndTechStack.invalid && FrontEndTechStack.touched">
+            *FrontEndTechStack is required
+        </div>
+
+        <label for="BackendEndTechStack">BackendEndTechStack<span class="required">*</span></label>
+        <input type="text" name="BackendEndTechStack" [(ngModel)]="formData.BackendEndTechStack"
+            placeholder="BackendEndTechStack" required #BackendEndTechStack="ngModel"
+            (change)="handleChange($event, 'BackendEndTechStack')" />
+        <div class="error" *ngIf="BackendEndTechStack.invalid && BackendEndTechStack.touched">
+            *BackendEndTechStack is required
+        </div>
+
+        <label for="Database">ProjectDescription<span class="required">*</span></label>
+        <input type="text" name="Database" [(ngModel)]="formData.Database" placeholder="Database" required
+            #Database="ngModel" (change)="handleChange($event, 'Database')" />
+        <div class="error" *ngIf="Database.invalid && Database.touched">
+            *Database is required
+        </div>
+
+
+        <div *ngIf="errorMessage" class="error">
+            *{{ errorMessage }}
+        </div>
+
+        <button type="submit">Update Project</button>
+    </form>
+</div>
+
+<div class="success-popup" *ngIf="successPopup">
+    <p>Updated successfully</p>
+    <button type="button" (click)="handleOkClick()">OK</button>
+</div>

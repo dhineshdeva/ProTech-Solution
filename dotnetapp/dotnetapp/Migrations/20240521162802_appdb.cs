@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace dotnetapp.Migrations
 {
-    public partial class initialdb : Migration
+    public partial class appdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -195,7 +195,7 @@ namespace dotnetapp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Proposals",
+                name: "Project_Proposals",
                 columns: table => new
                 {
                     ProposalId = table.Column<int>(type: "int", nullable: false)
@@ -207,9 +207,9 @@ namespace dotnetapp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Proposals", x => x.ProposalId);
+                    table.PrimaryKey("PK_Project_Proposals", x => x.ProposalId);
                     table.ForeignKey(
-                        name: "FK_Proposals_Users_UserId",
+                        name: "FK_Project_Proposals_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
@@ -231,15 +231,15 @@ namespace dotnetapp.Migrations
                     FrontEndTechStack = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BackendEndTechStack = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Database = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProposalId1 = table.Column<int>(type: "int", nullable: true)
+                    Project_ProposalProposalId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Projects", x => x.ProjectId);
                     table.ForeignKey(
-                        name: "FK_Projects_Proposals_ProposalId1",
-                        column: x => x.ProposalId1,
-                        principalTable: "Proposals",
+                        name: "FK_Projects_Project_Proposals_Project_ProposalProposalId",
+                        column: x => x.Project_ProposalProposalId,
+                        principalTable: "Project_Proposals",
                         principalColumn: "ProposalId");
                 });
 
@@ -321,14 +321,14 @@ namespace dotnetapp.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Projects_ProposalId1",
-                table: "Projects",
-                column: "ProposalId1");
+                name: "IX_Project_Proposals_UserId",
+                table: "Project_Proposals",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Proposals_UserId",
-                table: "Proposals",
-                column: "UserId");
+                name: "IX_Projects_Project_ProposalProposalId",
+                table: "Projects",
+                column: "Project_ProposalProposalId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_ProjectId",
@@ -374,7 +374,7 @@ namespace dotnetapp.Migrations
                 name: "Projects");
 
             migrationBuilder.DropTable(
-                name: "Proposals");
+                name: "Project_Proposals");
 
             migrationBuilder.DropTable(
                 name: "Users");

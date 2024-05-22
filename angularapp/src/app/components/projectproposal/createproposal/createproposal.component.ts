@@ -17,7 +17,7 @@ export class CreateproposalComponent implements OnInit {
     UserId: null,
     ProposalTitle: "",
     ProposalDescription: "",
-    Status: ""
+    status: "Pending"
   };
   errors: any = {};
   errorMessage: string;
@@ -25,6 +25,8 @@ export class CreateproposalComponent implements OnInit {
   constructor(private proposalService: ProjectproposalService) { }
   ngOnInit(): void {
     // Initialize your component here
+    this.formData.UserId=Number(localStorage.getItem("userId"))
+    console.log(this.formData.UserId);
   }
   handleChange(event: any, field: string) {
     this.formData[field] = event.target.value;
@@ -32,12 +34,14 @@ export class CreateproposalComponent implements OnInit {
   }
 
   onSubmit(proposalForm: NgForm) {
-    console.log('Form Validity:', proposalForm.valid);
+    console.log('Form Validity:', proposalForm.value);
+    console.log(this.formData)
     if (proposalForm.valid) {
+      
       this.proposalService.addProposal(this.formData).subscribe(
         (res) => {
           this.successPopup = true;
-          console.log('Loan added successfully', res);
+          // console.log('Proposal added successfully', res);
           proposalForm.resetForm();
         },
         (err) => {
@@ -60,7 +64,7 @@ export class CreateproposalComponent implements OnInit {
       UserId: null,
       ProposalTitle: "",
       ProposalDescription: "",
-      Status: ""
+      status:"Pending"
     };
   }
 

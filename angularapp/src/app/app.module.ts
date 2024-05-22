@@ -21,11 +21,12 @@ import { DeleteproposalComponent } from './components/projectproposal/deleteprop
 import { CreateprojectComponent } from './components/project/createproject/createproject.component';
 import { ViewprojectComponent } from './components/project/viewproject/viewproject.component';
 import { EditprojectComponent } from './components/project/editproject/editproject.component';
-import { DeleteprojectComponent } from './components/project/deleteproject/deleteproject.component';
 import { CreatetaskComponent } from './components/task/createtask/createtask.component';
 import { ViewtaskComponent } from './components/task/viewtask/viewtask.component';
 import { EdittaskComponent } from './components/task/edittask/edittask.component';
 import { DeletetaskComponent } from './components/task/deletetask/deletetask.component';
+import { AllfeedbackComponent } from './components/feedback/allfeedback/allfeedback.component';
+import { ViewemployeeComponent } from './components/viewemployee/viewemployee.component';
 
 
 
@@ -47,12 +48,13 @@ import { DeletetaskComponent } from './components/task/deletetask/deletetask.com
     DeleteproposalComponent,
     CreateprojectComponent,
     ViewprojectComponent,
-    EditprojectComponent,
-    DeleteprojectComponent,
+    EditprojectComponent,    
     CreatetaskComponent,
     ViewtaskComponent,
     EdittaskComponent,
     DeletetaskComponent,
+    AllfeedbackComponent,
+    ViewemployeeComponent,
 
   ],
   imports: [

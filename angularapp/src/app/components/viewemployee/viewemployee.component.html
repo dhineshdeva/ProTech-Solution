@@ -1,0 +1,35 @@
+<div class="feedback-table-container">
+  <h1>Employee Details</h1>
+  <hr>
+  <table class="feedback-table">
+    <thead>
+      <tr>
+        <th>S.No</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>MobileNumber</th>
+        <th>ProfileImage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ emp.UserName }}</td>
+        <td>{{emp.Email}}</td>
+        <td>{{emp.Email}}</td>
+        <td>{{emp.ProfileImage}}</td>
+        <!-- <td><button class="delete-button" (click)="openDeletePopup(feedback.FeedbackId)">Delete</button></td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showDeletePopup" class="delete-popup">
+  <p>Are you sure you want to delete?</p>
+  <button class="confirm-delete-button" (click)="handleConfirmDelete()">
+    Yes, Delete
+  </button>
+  <button class="cancel-delete-button" (click)="closeDeletePopup()">
+    Cancel
+  </button>
+</div>

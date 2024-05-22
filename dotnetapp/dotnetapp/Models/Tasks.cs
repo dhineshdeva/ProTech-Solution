@@ -26,7 +26,7 @@ namespace dotnetapp.Models
         public string Priority { get; set; }
 
         public virtual User? User { get; set; }
-        public virtual Project Project { get; set; }
+        public virtual Project? Project { get; set; }
 
 
 

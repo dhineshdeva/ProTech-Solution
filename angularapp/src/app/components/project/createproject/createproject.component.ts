@@ -19,7 +19,7 @@ export class CreateprojectComponent implements OnInit {
     ProjectDescription: "",
     StartDate: null,
     EndDate: null,
-    Satus: "",
+    Status: "",
     FrontEndTechStack: "",
     BackendEndTechStack: "",
     Database: ""
@@ -45,8 +45,9 @@ export class CreateprojectComponent implements OnInit {
     if (projectForm.valid) {
       this.projectService.addProject(this.formData).subscribe(
         (res) => {
+          console.log(res);          
           this.successPopup = true;
-          console.log('Loan added successfully', res);
+          console.log('Project added successfully', res);
           projectForm.resetForm();
         },
         (err) => {
@@ -72,7 +73,7 @@ export class CreateprojectComponent implements OnInit {
       ProjectDescription: "",
       StartDate: null,
       EndDate: null,
-      Satus: "",
+      Status: "",
       FrontEndTechStack: "",
       BackendEndTechStack: "",
       Database: ""

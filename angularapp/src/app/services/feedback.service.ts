@@ -15,6 +15,7 @@ export class FeedbackService {
   sendFeedback(feedback: Feedback): Observable<Feedback> {
     const headers = new HttpHeaders({
       'Authorization': 'Bearer ' + localStorage.getItem('token')
+    
     });
     return this.http.post<Feedback>(`${this.apiUrl}/feedback/addFeedback`, feedback, { headers });
   }
@@ -25,8 +26,6 @@ export class FeedbackService {
     });
     return this.http.get<Feedback[]>(`${this.apiUrl}/feedback/getFeedbacksByUserId/${userId}`, { headers });
   }
-
-
 
   getFeedbacks(): Observable<Feedback[]> {
     const headers = new HttpHeaders({

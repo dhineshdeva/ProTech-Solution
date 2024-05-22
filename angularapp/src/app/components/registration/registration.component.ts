@@ -14,12 +14,13 @@ export class RegistrationComponent implements OnInit {
   registrationForm!: FormGroup;
   username: string = "";
   password: string = "";
-  errorMessage: string;
+  errorMessage: string="";
   confirmPassword: string = "";
   mobileNumber: string = "";
   userRole: string = "";
   email: string = "";
   passwordMismatch: boolean = false; // New property to track password mismatch
+  profileImage:string="";
 
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) {
 
@@ -43,11 +44,12 @@ export class RegistrationComponent implements OnInit {
     }
 
     const user: User = {
-      Username: this.username,
+      UserName: this.username,
       Password: this.password,
-      UserRole: this.userRole,
+      Role: this.userRole,
       Email: this.email,
-      MobileNumber: this.mobileNumber
+      MobileNumber: this.mobileNumber,
+      ProfileImage:this.profileImage
     }
 
 
@@ -57,6 +59,7 @@ this.authService.register(user).subscribe(
     if (response && response.Status === 'Success') {
       this.router.navigate(['/login']);
     } else if (response && response.error && response.error.Message) {
+      console.log(this.errorMessage);      
       this.errorMessage = response.error.Message;
     }
   },

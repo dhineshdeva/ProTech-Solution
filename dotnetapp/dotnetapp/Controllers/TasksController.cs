@@ -18,7 +18,8 @@ namespace dotnetapp.Controllers
         }
 
         //createTask
-        [HttpPost("createTask")]
+        [Authorize(Roles ="Manager")]
+        [HttpPost("CreateTask")]
         public async Task<ActionResult> CreateTask([FromBody] Tasks newtask)
         {
             try
@@ -42,7 +43,7 @@ namespace dotnetapp.Controllers
 
         //getAllTasks
         [HttpGet("getAllTasks")]
-        [Authorize(Roles = "Employee")]
+        [Authorize(Roles = "Manager")]
         public async Task<ActionResult<IEnumerable<Tasks>>> GetAllTasks()
         {
             var taskList = await _taskService.GetAllTasks();
@@ -56,7 +57,8 @@ namespace dotnetapp.Controllers
             }
         }
         //getTaskById/:taskId
-        [HttpGet("getTaskById/:taskId")]
+        [Authorize(Roles ="Manager,Employee")]
+        [HttpGet("getTaskById/{taskId}")]
         public async Task<ActionResult<Tasks>> GetTaskById(int taskId)
         {
             var existingtask = await _taskService.GetTaskById(taskId);
@@ -65,8 +67,8 @@ namespace dotnetapp.Controllers
             return Ok(existingtask);
         }
         //updateTask/:taskId
-        [Authorize(Roles = "Employee,Manager")]
-        [HttpPut("updateTask/:taskId")]
+        [Authorize(Roles = "Manager,Employee")]
+        [HttpPut("updateTask/{taskId}")]
         public async Task<ActionResult> updateTask(int taskId, [FromBody] Tasks newTask)
         {
             try
@@ -84,7 +86,8 @@ namespace dotnetapp.Controllers
             }
         }
         //deleteTask/:taskId
-        [HttpDelete("deleteTask/:taskId")]
+        [Authorize(Roles ="Manager")]
+        [HttpDelete("deleteTask/{taskId}")]
         public async Task<ActionResult> DeleteTask(int taskId)
         {
             try
@@ -101,8 +104,9 @@ namespace dotnetapp.Controllers
             }
         }
         //getTaskByUserId/:userId
+        [Authorize(Roles ="Employee")]
 
-        [HttpGet("getTaskByUserId/:userId")]
+        [HttpGet("getTaskByUserId/{userId}")]
         public async Task<ActionResult<Tasks>> GetTaskByUserId(int userId)
         {
             var taskbyuser = await _taskService.GetTaskByUserId(userId);

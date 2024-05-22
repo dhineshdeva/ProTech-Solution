@@ -17,7 +17,7 @@ namespace dotnetapp.Controllers
             _projectProposalService = projectProposalService;
         }
 
-        [Authorize(Roles = "Employee")]
+        [Authorize(Roles = "Employee,Manager")]
         //getAllProposals
         [HttpGet("getAllProposals")]
         public async Task<ActionResult<IEnumerable<ProjectProposal>>> GetAllProposals()
@@ -34,7 +34,7 @@ namespace dotnetapp.Controllers
         }
 
         //getProposalById/:proposalId":
-        [HttpGet("getProposalById/:proposalId")]
+        [HttpGet("getProposalById/{proposalId}")]
         public async Task<ActionResult<ProjectProposal>> GetProposalById(int proposalId)
         {
             var proposal = await _projectProposalService.GetProposalById(proposalId);
@@ -67,8 +67,8 @@ namespace dotnetapp.Controllers
             }
         }
         //updateProposal/:proposalId
-        [Authorize(Roles = "Employee")]
-        [HttpPut("updateProposal/:proposalId")]
+        [Authorize(Roles = "Employee,Manager")]
+        [HttpPut("updateProposal/{proposalId}")]
         public async Task<ActionResult> UpdateCropByCropId(int proposalId, [FromBody] ProjectProposal proposal)
         {
             try
@@ -87,7 +87,7 @@ namespace dotnetapp.Controllers
         }
         //deleteProposal/:proposalId
         [Authorize(Roles = "Employee")]
-        [HttpDelete("deleteProposal/:proposalId")]
+        [HttpDelete("deleteProposal/{proposalId}")]
         public async Task<ActionResult> DeleteProposal(int proposalId)
         {
             try

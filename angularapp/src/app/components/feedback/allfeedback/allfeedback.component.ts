@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
 @Component({
-  selector: 'app-viewfeedback',
-  templateUrl: './viewfeedback.component.html',
-  styleUrls: ['./viewfeedback.component.css']
+  selector: 'app-allfeedback',
+  templateUrl: './allfeedback.component.html',
+  styleUrls: ['./allfeedback.component.css']
 })
-export class ViewfeedbackComponent implements OnInit {
+export class AllfeedbackComponent implements OnInit {
 
   feedbacks: any[] = [];
   showDeletePopup = false;
@@ -22,7 +22,7 @@ export class ViewfeedbackComponent implements OnInit {
     const userId = localStorage.getItem('userId');
     console.log(userId);
     
-    this.feedbackService.getAllfeedbacksByUserId(userId).subscribe(
+    this.feedbackService.getFeedbacks().subscribe(
       (data: any) => {
         this.feedbacks = data;
         console.log(this.feedbacks);
@@ -32,5 +32,5 @@ export class ViewfeedbackComponent implements OnInit {
       }
     );
   }
-  
+
 }

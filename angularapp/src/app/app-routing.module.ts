@@ -21,7 +21,9 @@ import { DeletetaskComponent } from './components/task/deletetask/deletetask.com
 import { CreateprojectComponent } from './components/project/createproject/createproject.component';
 import { ViewprojectComponent } from './components/project/viewproject/viewproject.component';
 import { EditprojectComponent } from './components/project/editproject/editproject.component';
-import { DeleteprojectComponent } from './components/project/deleteproject/deleteproject.component';
+import { AllfeedbackComponent } from './components/feedback/allfeedback/allfeedback.component';
+import { ViewemployeeComponent } from './components/viewemployee/viewemployee.component';
+
 
 const routes: Routes = [
 
@@ -31,33 +33,37 @@ const routes: Routes = [
   { path: 'error', component: ErrorComponent },
   { path: 'farmer/feedback/create', component: CreatefeedbackComponent },
   { path: 'farmer/feedback/myfeedback', component: FormerviewfeedbackComponent },
-  //project Proposal
+  //project Proposal -> employee
   { path: 'employee/proposal/create', component: CreateproposalComponent },
   { path: 'employee/proposal/view', component: ViewproposalComponent },
-  { path: 'employee/proposal/edit', component: EditproposalComponent },
+  { path: 'employee/proposal/edit/:id', component: EditproposalComponent },
   { path: 'employee/proposal/delete', component: DeleteproposalComponent },
+// project Proposal -> Manager
+{ path: 'manager/proposal/view', component: ViewproposalComponent },
+{ path: 'manager/proposal/edit/:id', component: EditproposalComponent },
 
   { path: 'employee/project/view', component: ViewprojectComponent },
-
   { path: 'employee/task/view', component: ViewtaskComponent },
-
-  { path: 'employee/task/edit', component: EdittaskComponent },
-
+  { path: 'employee/task/edit/:id', component: EdittaskComponent },
 
   // Project
   { path: 'manager/project/create', component: CreateprojectComponent },
   { path: 'manager/project/view', component: ViewprojectComponent },
-  { path: 'manager/project/edit', component: EditprojectComponent },
-  { path: 'manager/project/delete', component: DeleteprojectComponent },
+  { path: 'manager/project/edit/:id', component: EditprojectComponent },
+  
   //Task
   { path: 'manager/task/create', component: CreatetaskComponent },
   { path: 'manager/task/view', component: ViewtaskComponent },
-  { path: 'manager/task/edit', component: EdittaskComponent },
+  { path: 'manager/task/edit/:id', component: EdittaskComponent },
   { path: 'manager/task/delete', component: DeletetaskComponent },
+
   //feedback
   { path: 'employee/feedback/create', component: CreatefeedbackComponent },
   { path: 'employee/feedback/myfeedback', component: ViewfeedbackComponent},
-  { path: 'manager/feedback/view', component: ViewfeedbackComponent },
+  { path: 'manager/feedback/view', component: AllfeedbackComponent },
+
+  // employees 
+  {path:"manager/viewemployee", component:ViewemployeeComponent},
   { path: '**', redirectTo: '/error' },
 ];
 

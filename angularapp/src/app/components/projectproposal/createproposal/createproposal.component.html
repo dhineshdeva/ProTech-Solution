@@ -21,12 +21,19 @@
       </div>
 
 
-      <label for="Status">Status<span class="required">*</span></label>
-      <input type="text" name="Status" [(ngModel)]="formData.Status" placeholder="Status" required #Status="ngModel"
-        (change)="handleChange($event, 'Status')" />
-      <div class="error" *ngIf="Status.invalid && Status.touched">
-        *Status is required
+      <label for="status">status<span class="required">*</span></label>
+      <input type="text"  disabled name="status" [(ngModel)]="formData.status" 
+      placeholder="Status" required #status="ngModel"
+        (change)="handleChange($event, 'status')" />
+      <div class="error" *ngIf="status.invalid && status.touched">
+        *status is required
       </div>
+
+      <div *ngIf="errorMessage" class="error">
+        *{{ errorMessage }}
+      </div>
+
+      <button type="submit">Submit</button>
     </form>
 
     <div *ngIf="successPopup" class="success-popup">

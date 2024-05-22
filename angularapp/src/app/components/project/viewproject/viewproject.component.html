@@ -22,7 +22,7 @@
         <thead>
           <tr>
             <th>S.No</th>
-            <th>ProposalId</th>
+            <!-- <th>ProposalId</th> -->
             <th>ProjectTitle</th>
             <th>ProjectDescription</th>
             <th>EndDate</th>
@@ -30,6 +30,7 @@
             <th>FrontEndTechStack</th>
             <th>BackendEndTechStack</th>
             <th>Database</th>
+            <th *ngIf="isManager">Edit</th>
 
           </tr>
         </thead>
@@ -37,22 +38,16 @@
             <tr *ngFor="let project of filteredproject,let i = index">
               <td>{{ i + 1 }}</td>
               <td>{{ project.ProposalId }}</td>
-              <td>{{ project.ProjectTitle }}</td>
-              <td>{{ project.ProjectDescription }}%</td>
+              <!-- <td>{{ project.ProjectTitle }}</td> -->
+              <td>{{ project.ProjectDescription }}</td>
               <td>{{ project.EndDate }}</td>
-              <td>{{ project.Satus }}</td>
+              <td>{{ project.Status }}</td>
               <td>{{ project.FrontEndTechStack }}</td>
               <td>{{ project.BackendEndTechStack }}</td>
               <td>{{ project.Database }}</td>
-              <td>
-                <!-- <button
-                  id="greenButton"
-                  *ngIf="!isLoanApplied(loan)"
-                  (click)="handleApplyClick(loan)"
-                >
-                  Apply
-                </button> -->
-                <!--   -->
+              <td *ngIf="isManager">
+                <button  (click)="navigateToEditProject(project.ProjectId)">Edit</button>
+                
               </td>
             </tr>
           </tbody>
